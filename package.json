@@ -1,0 +1,41 @@
+{
+  "name": "yajindra-backend-assignment",
+  "version": "1.0.0",
+  "description": "Yajindra ",
+  "main": "app.js",
+  "repository": "git@github.com:yajindragautam/my-portfolio.git",
+  "author": "yajindra.gautam <yajindra.gautam@ekbana.info>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./src/app.js",
+    "migration": "npx sequelize db:migrate",
+    "migrate:undo": "npx sequelize db:migrate:undo",
+    "seed": "npx sequelize db:seed:all",
+    "refresh:db:all": "npm run migrate:undo:all && npm run migrate && npm run seed",
+    "migration:undo:all": "npx sequelize-cli db:migrate:undo:all",
+    "migration:create": "npx sequelize-cli migration:create --name"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.3",
+    "nodemon": "^2.0.22",
+    "pg": "^8.11.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.32.1",
+    "sequelize-paginate": "^1.1.6"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
+}
