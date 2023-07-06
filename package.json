@@ -8,12 +8,13 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon ./src/app.js",
-    "migration": "npx sequelize db:migrate",
-    "migrate:undo": "npx sequelize db:migrate:undo",
-    "seed": "npx sequelize db:seed:all",
+    "migrate": "npx sequelize db:migrate  --config src/config/config.js --migrations-path src/database/migrations",
+    "migrate:undo": "npx sequelize db:migrate:undo --config src/config/config.js --migrations-path src/database/migrations",
+    "seed": "npx sequelize db:seed:all --config src/config/config.js --seeders-path src/database/seeders",
+    "migrate:undo:all": "npx sequelize-cli db:migrate:undo:all --config src/config/config.js --migrations-path src/database/migrations",
     "refresh:db:all": "npm run migrate:undo:all && npm run migrate && npm run seed",
-    "migration:undo:all": "npx sequelize-cli db:migrate:undo:all",
-    "migration:create": "npx sequelize-cli migration:create --name"
+    "migration:create": "npx sequelize-cli migration:create --migrations-path src/database/migrations --name",
+    "seed:create": "npx sequelize-cli seed:generate --seeders-path src/database/seeders --name"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

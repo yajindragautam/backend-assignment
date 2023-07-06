@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) =>{
       return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
     };
 
-    return  sequelize.define('user', modelDefinition,modelOptions);
+    return  sequelize.define('Users', modelDefinition,modelOptions);
 }
 
 

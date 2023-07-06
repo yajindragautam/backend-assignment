@@ -1,23 +1,39 @@
+const env = require('dotenv');
+env.config();
 module.exports = {
-    "development": {
-      "username": "root",
-      "password": null,
-      "database": "database_development",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+  development : {
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    host: process.env.POSTGRES_HOST,
+    dialect: "postgres",
+    logging: false,
+    dialectOptions: {
+      useUTC: false
     },
-    "test": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
-    },
-    "production": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+    pool: {
+      max: 10,
+      min: 0,
+      idle: 10000,
+      acquire: 20000
     }
+  },
+  production: {
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    host: process.env.POSTGRES_HOST,
+    dialect: "postgres",
+    logging: false,
+    dialectOptions: {
+      useUTC: false
+    },
+    pool: {
+      max: 10,
+      min: 0,
+      idle: 10000,
+      acquire: 20000
+    }
+  },
+
 }
