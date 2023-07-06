@@ -32,4 +32,13 @@ async function hashPassword(password) {
     }
 }
 
-module.exports ={generateRandomNumber,hashPassword,generateRandomString}
+async function comparePassword(rawPassword,hashedPass){
+  try {
+    return bcrypt.compare(rawPassword,hashedPass);
+  } catch (err) {
+    return res.status(401).json({ message: 'Authentication failed' });
+    console.log(err);
+  }
+}
+
+module.exports ={generateRandomNumber,hashPassword,generateRandomString,comparePassword}

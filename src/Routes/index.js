@@ -3,5 +3,5 @@ const Router = express.Router();
 const app = require('../app');
 
 module.exports = (app)=>{
-    app.use(require('./backend'));
+    app.use(require('./api'));
 }

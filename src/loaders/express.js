@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const ejs = require("ejs");
+const jwt = require('jsonwebtoken');
 const flash = require('connect-flash');
 const fileUpload = require("express-fileupload");
 const path = require("path");
@@ -19,9 +19,7 @@ const{postgres} = require("../config/db");
 // require("../seeds/index")
 // Resources path middleware
 app.use(express.static(path.join(__dirname, "../../public")));
-// Template Engine Middleware
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "../views"));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
